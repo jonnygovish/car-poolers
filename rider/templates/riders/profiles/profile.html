@@ -1,0 +1,38 @@
+
+{% extends 'riders/base.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="profile">
+  <div class="profile__head">
+    <div class="row">
+      <div class="col-xs-4">
+        {% if profile.profile_pic %}
+          <img class="picture-circle" src="{{ profile.profile_pic.url }}">
+        {% else %}
+          <img class="picture-circle" src="{% static 'images/profile_placeholder.jpg' %}">
+        {% endif %}
+      </div>
+      <div class="col-xs-8 right">
+        <div class="name-buttons">
+          <h1 class="username">{{ user.username }}</h1>
+          {% if request.user == user %}
+            <a class="edit-desktop" href="{% url 'edit' user.username %}">
+              <button class="edit-profile">Edit Profile</button>
+            </a>
+          {% endif %}
+        </div>
+        <div class="desktop-block">
+          <div class="description">
+            <p>{% if profile.bio %}{{ profile.bio }}{% endif %}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+{% endblock %}
