@@ -1,5 +1,5 @@
 # Car Poolers
-An application that allows users to hare a ride from one place to another
+An application that allows users to share a ride from one place to another
 
 ## User Story
 As a uer I would be able to
