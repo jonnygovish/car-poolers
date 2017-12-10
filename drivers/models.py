@@ -10,7 +10,7 @@ from django.core.validators import RegexValidator
 class Driver_profile(models.Model):
     user = models.OneToOneField(User, on_delete = models.CASCADE)
     bio = models.TextField(max_length=200, blank =True)
-    location = models.CharField(max_length = 50, blank =True)
+    city = models.CharField(max_length = 50, blank =True)
     phone_number =models.IntegerField(blank = True, null = True)
     profile_pic = models.ImageField(upload_to = 'profile_pic/', blank=True, null= True)
     car_model = models.CharField(max_length = 30, blank = True)
@@ -24,27 +24,15 @@ class Driver_profile(models.Model):
 
 
 
-@receiver(post_save, sender = User)
-def create_user_profile(sender, instance, created, **kwargs):
-    if created:
-        Driver_profile.objects.create(user=instance)
+    @receiver(post_save, sender = User)
+    def create_user_profile(sender, instance, created, **kwargs):
+        if created:
+            Driver_profile.objects.create(user=instance)
 
-@receiver(post_save, sender = User)
-def save_user_profile(sender,instance, **kwargs):
-    instance.driver_profile.save()
+    @receiver(post_save, sender = User)
+    def save_user_profile(sender,instance, **kwargs):
+        instance.driver_profile.save()
 
-
-# class DriverReview(models.Model):
-#     rider_profile = models.ForeignKey(Rider_profile, on_delete=models.CASCADE)
-#     driver_profile = models.ForeignKey(Driver_profile, on_delete=models.CASCADE)
-#     review = models.TextField(max_length=500)
-
-
-
-#     @classmethod
-#     def get_reviews(cls, driver_profile_id):
-#         driver_reviews = DriverReview.objects.filter(driver_profile = driver_profile_id)
-#         return driver_reviews
 
 
 class TripPlan(models.Model):
