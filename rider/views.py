@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
 from .forms import UserForm,ProfileForm
 from .models import Rider_profile
-
+from drivers.models import Driver_profile
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.core.urlresolvers import reverse
@@ -11,7 +11,8 @@ from django.core.urlresolvers import reverse
 def rider(request):
   user = User.objects.get(username = request.user.username)
   profile = Rider_profile.objects.get(user =user)
-  return render(request, 'riders/rider.html', {"profile": profile})
+  drivers = Driver_profile.objects.all()
+  return render(request, 'riders/rider.html', {"profile": profile, "drivers":drivers})
 
 
 def update_profile(request,username):
@@ -20,6 +21,7 @@ def update_profile(request,username):
     user_form = UserForm(request.POST, instance = request.user)
     profile_form = ProfileForm(request.POST, instance =request.user.rider_profile, files = request.FILES)
     if user_form.is_valid() and profile_form.is_valid():
+      print('gjhdgasjdg')
       user_form.save()
       profile_form.save()
       messages.success(request, ('Your profile was successfully updated!'))
@@ -44,16 +46,13 @@ def profile(request, username):
   return render(request, 'riders/profiles/profile.html', {"title":title, "user":user, "profiles": profiles})
 
 
-#Rider sees a particular driver's profile and reviews
-# def driver_profile(request, rider_profile_id, driver_profile_id):
-#   rider = Rider_profile.objects.get(id = rider_profile_id)
+#Rider sees a particular driver's profile
+def driver_profile(request,driver_profile_id):  
+  user= User.objects.get(id = driver_profile_id)
+  if user:
+    driver_profile = Driver_profile.objects.get(user=user)
+  return render(request,'riders/driver_profile.html',{"driver_profile": driver_profile})
 
-#   if rider:
-#     driver_profile = Driver_profile.objects.get(id = driver_profile_id)
-
-#     reviews = DriverReview.get_reviews(driver_profile_id)
-
-#     review_form = ReviewForm()
 
   
 

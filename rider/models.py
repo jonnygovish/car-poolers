@@ -24,12 +24,3 @@ class Rider_profile(models.Model):
     instance.rider_profile.save()
 
 
-# class RiderReview(models.Model):
-#   driver_profile = models.ForeignKey('drivers.Driver_profile', on_delete=models.CASCADE)
-#   rider_profile = models.ForeignKey('Rider_profile', on_delete=models.CASCADE)
-#   review = models.TextField(max_length=500)
-
-  @classmethod
-  def get_rider_review(cls,rider_profile_id):
-    rider_review = RiderReview.objects.filter(rider_profile = rider_profile_id)
-    return rider_review
