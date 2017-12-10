@@ -2,6 +2,7 @@ from django.db import models
 from django.db.models.signals import post_save
 from django.contrib.auth.models import User
 from django.dispatch import receiver
+# from drivers.models import Driver_profile
 
 
 # Create your models here.
@@ -21,3 +22,14 @@ class Rider_profile(models.Model):
   @receiver(post_save, sender = User)
   def save_user_profile(sender,instance, **kwargs):
     instance.rider_profile.save()
+
+
+# class RiderReview(models.Model):
+#   driver_profile = models.ForeignKey('drivers.Driver_profile', on_delete=models.CASCADE)
+#   rider_profile = models.ForeignKey('Rider_profile', on_delete=models.CASCADE)
+#   review = models.TextField(max_length=500)
+
+  @classmethod
+  def get_rider_review(cls,rider_profile_id):
+    rider_review = RiderReview.objects.filter(rider_profile = rider_profile_id)
+    return rider_review

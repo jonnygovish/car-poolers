@@ -11,3 +11,8 @@ class ProfileForm(forms.ModelForm):
   class Meta:
     model = Rider_profile
     fields = ('bio', 'location','profile_pic', 'phone_number')
+
+# class ReviewForm(forms.ModelForm):
+#   class Meta:
+#     model = RiderReview
+#     fields = ('review',)
