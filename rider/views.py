@@ -1,14 +1,17 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
-from .forms import UserForm, ProfileForm
+from .forms import UserForm,ProfileForm
 from .models import Rider_profile
+
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.core.urlresolvers import reverse
 
 # Create your views here.
 def rider(request):
-  return render(request, 'riders/rider.html')
+  user = User.objects.get(username = request.user.username)
+  profile = Rider_profile.objects.get(user =user)
+  return render(request, 'riders/rider.html', {"profile": profile})
 
 
 def update_profile(request,username):
@@ -20,7 +23,7 @@ def update_profile(request,username):
       user_form.save()
       profile_form.save()
       messages.success(request, ('Your profile was successfully updated!'))
-      return redirect(reverse('profile', kwargs = {'username': request.user.username}))
+      return redirect(reverse('rider:profile', kwargs = {'username': request.user.username}))
     else:
       messages.error(request, ('Please correct the error below.'))
 
@@ -34,10 +37,24 @@ def profile(request, username):
   user = User.objects.get(username =username)
   if not user:
     return redirect('rider')
-  profile = Rider_profile.objects.get(user =user)
-  print(profile.profile_pic)
+  profiles = Rider_profile.objects.get(user =user)
 
   title = f"{user.username}"
 
-  return render(request, 'riders/profiles/profile.html', {"title":title, "user":user, "profile": profile})
+  return render(request, 'riders/profiles/profile.html', {"title":title, "user":user, "profiles": profiles})
+
+
+#Rider sees a particular driver's profile and reviews
+# def driver_profile(request, rider_profile_id, driver_profile_id):
+#   rider = Rider_profile.objects.get(id = rider_profile_id)
+
+#   if rider:
+#     driver_profile = Driver_profile.objects.get(id = driver_profile_id)
+
+#     reviews = DriverReview.get_reviews(driver_profile_id)
+
+#     review_form = ReviewForm()
+
+  
+
 
