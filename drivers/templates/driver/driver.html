@@ -1,4 +1,57 @@
 {% extends 'driver/base.html' %}
+{% load static %}
+
+
 {% block content %}
-<h1>Welcome Driver</h1>
+<div class="container">
+  <div class="rider"> 
+    <div class="row" id="row">
+      <div class="col-md-2 side">
+
+         
+        {% if profile.profile_pic %}
+        <img class="picture-circle" src="{{ profile.profile_pic.url }}">
+        {{profile.bio}}
+        {% else %}
+        <img class="picture-circle" src="{% static 'images/profile_placeholder.jpg' %}">
+        {% endif %} <br>
+        <h1 class="username">{{ user.first_name }}</h1>
+        <hr>
+        <a href="{% url 'drivers:profile' request.user.username%}">Profile</a>
+      </div>
+      <div class="col-md-8">
+        <div class="row">
+            <h2 class="text-center">Welcome {{ user.username }} </h2>
+            <ul class="nav nav-tabs">
+              <li class="active"><a data-toggle="tab" href="#home">Pick up points</a></li>
+              <li><a data-toggle="tab" href="#drivers">Drivers</a></li>
+              <li><a data-toggle="tab" href="#review">Review</a></li>
+          </ul>
+          
+            <div class="tab-content">
+              <div id="home" class="tab-pane fade in active">
+                <h3>Map
+                </h3>
+                <div id="map"></div>
+              </div>
+              <div id="Pick_up" class="tab-pane fade">
+                <h3>Menu 1</h3>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              </div>
+              <div id="drivers" class="tab-pane fade">
+                <h3>Menu 2</h3>
+                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+              </div>
+              <div id="review" class="tab-pane fade">
+                <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>                      
+    <div class="col-md-2"></div>
+  </div>
+</div> 
+
 {% endblock %}
