@@ -3,7 +3,7 @@ from django.conf.urls.static import static
 from django.conf.urls import url
 from .import views
 
-apps_name = 'rider'
+app_name = 'rider'
 
 urlpatterns = [
   url(r'^$',views.rider, name = 'rider'),
