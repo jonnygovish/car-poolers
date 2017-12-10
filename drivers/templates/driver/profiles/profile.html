@@ -12,11 +12,15 @@
       <div class="col-md-2 side">
         {% if profile.profile_pic %}
         <img class="picture-circle" src="{{ profile.profile_pic.url }}">
-        {{profile.bio}}
+        <br>
+        <h4 class="text-center">{{profile.bio}}</h4>
         {% else %}
         <img class="picture-circle" src="{% static 'images/profile_placeholder.jpg' %}">
         {% endif %} <br>
+        <hr>
         <h1 class="username">{{ user.username }}</h1>
+        <hr>
+        <h2>Review</h2>
         {% ratings profile %}
       </div>
       <div class="col-md-8">
@@ -43,8 +47,8 @@
           </div>
           <div class="col-md-6">
             <div class="row">
-              <h3>Location</h3>
-              {{profile.location}}
+              <h3>City</h3>
+              {{profile.city}}
             </div>
           </div>
         </div>
@@ -68,7 +72,7 @@
               <div class="col-md-6">
                 <div class="row">
                   <h3>Car Number plate</h3>
-                    {{profile.car_number_plate}}
+                    {{profile.car_number_plates}}
                 </div>
               </div>
               <div class="col-md-6">

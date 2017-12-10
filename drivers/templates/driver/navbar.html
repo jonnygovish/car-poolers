@@ -13,8 +13,15 @@
         <div id="navbar-main" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
                 {% if request.user.is_authenticated %}
-                    <li><a href="{% url 'drivers:profile' request.user.username %}"><i class="fa fa-user " aria-hidden="true"></i></a></li>
-                    <li><a href="/logout"><i class="fa fa-sign-out " aria-hidden="true"></i></a></li>
+                    <li>
+                        <a href="/driver/"><i class="fa fa-home " aria-hidden="true"></i></a>
+                    </li>
+                    <li>
+                        <a href="{% url 'drivers:profile' request.user.username %}"><i class="fa fa-user " aria-hidden="true"></i></a>
+                    </li>
+                    <li>
+                        <a href="/logout"><i class="fa fa-sign-out " aria-hidden="true"></i></a>
+                    </li>
                 {% else %}
                     <li><a href="/accounts/login">Login</a></li>
                     <li><a href="/accounts/register/">Signup</a></li>
