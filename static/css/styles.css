@@ -1,10 +1,10 @@
 .city{
   background-image: url('/static/images/nairobi.jpg');
   background-repeat: no-repeat;
-  background-size: contain;
-  height: 100vh;
-  width: 100%;
+  background-size: cover;
+  height:100vh;
   color: white; 
+  margin-top: -50px;
 }
 
 
@@ -35,29 +35,10 @@ a:hover {
     .content-wrapper {
       margin-top: 50px; } }
 
-.picture-circle, .picture-circle--medium, .picture-circle--small {
-  border-radius: 100%;
-  width: 150px;
-  height: 150px; }
-  .picture-circle--medium {
-    width: 36px;
-    height: 36px; }
-  .picture-circle--small {
-    width: 30px;
-    height: 30px; }
 
 
-.options-bubbles {
-  display: inline-block; }
-  .options-bubbles:hover {
-    cursor: pointer; }
-  .options-bubbles .bubble {
-    display: inline-block;
-    height: 5px;
-    width: 5px;
-    border: 1px solid #8f8f8f;
-    border-radius: 100%;
-    margin: 0; }
+
+
 
 .desktop-block {
   display: block; }
@@ -71,34 +52,15 @@ a:hover {
   background-color:transparent;
   border: none;
   z-index: 100;
+  color: white;
 }
   .navbar .fa {
     /* font-size: px; */
-    color: #999999; }
+    color: #fff; }
     .navbar .fa.active {
       color: #333; }
-  .navbar .mobile {
-    display: none; }
-    .navbar .mobile a, .navbar .mobile a:hover, .navbar .mobile a:focus {
-      color: #333; }
-    .navbar .mobile .col-xs-3 {
-      text-align: center;
-      min-height: 50px;
-      width: 20%; }
-      .navbar .mobile .col-xs-3 .fa {
-        font-size: 25px;
-        margin-top: 13px; }
+  
   .navbar .navbar-brand:not(:first-of-type) {
-    float: right; }
-  .navbar#mobile-top-nav .item-right {
-    float: right;
-    padding: 15px; }
-  .navbar#mobile-top-nav .back-button .fa, .navbar#mobile-top-nav .new-message .fa {
-    padding: 16px 15px 15px;
-    font-size: 16px; }
-    .navbar#mobile-top-nav .back-button .fa:hover, .navbar#mobile-top-nav .new-message .fa:hover {
-      cursor: pointer; }
-  .navbar#mobile-top-nav .new-message {
     float: right; }
   @media screen and (max-width: 768px) {
     .navbar#main-nav {
@@ -119,36 +81,6 @@ a:hover {
 
 
 
-
-
-
-.input-row {
-  position: relative;
-  display: flex;
-  align-items: center;
-  height: 68px;
-  padding-left: 40px; }
-  .input-row .submit-like {
-    cursor: pointer;
-    position: absolute;
-    top: 32%;
-    left: 0;
-    color: #C2C2C2;
-    font-size: 24px; }
-    .input-row .submit-like:hover {
-      cursor: pointer; }
-    .input-row .submit-like.fa-heart {
-      color: #ED4956; }
-  .input-row .comment-input-wrapper {
-    display: inline-block;
-    color: #262626;
-    font-size: 15px;
-    width: 100%; }
-    .input-row .comment-input-wrapper input {
-      width: 100%;
-      border: none;
-      outline: none; }
-
 @media screen and (min-width: 768px) {
   .profile-settings, .auth-form {
     max-width: 60%;
@@ -159,20 +91,8 @@ a:hover {
   margin-top: 60px;
   border-top: 1px solid #dbdbdb; }
 
-.profile-pic-name {
-  padding: 30px 0; }
-  .profile-pic-name span {
-    font-size: 24px;
-    font-weight: bold;
-    vertical-align: middle;
-    margin-left: 32px; }
 
-.auth-form .btn {
-  width: 100%;
-  margin-bottom: 15px;
-  font-weight: bold; }
-.auth-form .help-text {
-  font-size: 12px; }
+
 
 .profile {
   max-width: 975px;
@@ -245,21 +165,8 @@ a:hover {
       .profile__body > .row > .col-xs-4 {
         padding: 1px; } }
 
-.stats {
-  list-style: none;
-  margin: 0;
-  margin-bottom: 20px;
-  padding: 0; }
-  .stats > * {
-    font-size: 17px;
-    color: #262626; }
-  .stats .stats__count {
-    display: inline-block;
-    margin-right: 40px; }
-    .stats .stats__count span {
-      font-weight: bold; }
-  .stats a:hover {
-    color: #262626;
-    cursor: pointer; }
 
 
+.side{
+  border-right-style: solid;
+}
