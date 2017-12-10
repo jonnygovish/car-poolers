@@ -9,6 +9,7 @@ urlpatterns = [
   url(r'^$',views.driver, name = 'driver'),
   url(r'^profile/(?P<username>[-_\w.]+)/$', views.profile, name='profile'),
   url(r'^profile/(?P<username>[-_\w.]+)/edit/$', views.update_profile, name='edit'),
+  url(r'^rider_profile/(\d+)/$', views.rider_profile, name='rider_profile'),
 ]
 
 

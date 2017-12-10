@@ -36,8 +36,12 @@
                 <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
               </div>
               <div id="drivers" class="tab-pane fade">
-                <h3>Menu 2</h3>
-                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                <h3>Passengers</h3>
+                {% for rider in riders%}
+                <h1>
+                  <a href="{% url 'drivers:rider_profile' rider.user.id%}">{{rider.user.username}}</a>
+                </h1>
+              {% endfor %}
               </div>
               <div id="trip" class="tab-pane fade">
                 <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>

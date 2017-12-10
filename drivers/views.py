@@ -1,8 +1,9 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
 from .forms import UserForm, DriverProfileForm
-from django.contrib.auth.models import User
 from .models import Driver_profile
+from rider.models import Rider_profile
+from django.contrib.auth.models import User
 from django.contrib import messages
 from django.core.urlresolvers import reverse
 from django.db import transaction
@@ -11,7 +12,8 @@ from django.db import transaction
 def driver(request):
   user = User.objects.get(username = request.user.username)
   profile = Driver_profile.objects.get(user =user)
-  return render(request, 'driver/driver.html',{"profile": profile})
+  riders = Rider_profile.objects.all()
+  return render(request, 'driver/driver.html',{"profile": profile, "riders": riders})
 
 @transaction.atomic
 def update_profile(request,username):
@@ -43,4 +45,11 @@ def profile(request, username):
   title = f"{user.username}"
 
   return render(request, 'driver/profiles/profile.html', {"title":title, "user":user, "profile": profile})
+
+
+def rider_profile(request,rider_profile_id):  
+  user= User.objects.get(id = rider_profile_id)
+  if user:
+    rider_profile = Rider_profile.objects.get(user=user)
+  return render(request,'driver/rider_profile.html',{"rider_profile": rider_profile})
 

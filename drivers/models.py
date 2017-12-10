@@ -20,6 +20,7 @@ class Driver_profile(models.Model):
     car_color = models.CharField(max_length = 30, blank =True)
     current_location = models.CharField(max_length = 10)
     destination = models.CharField(max_length = 30, blank = True, null = True)
+    Free_space =models.PositiveIntegerField(default =0)
 
 
 
