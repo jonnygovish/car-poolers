@@ -26,7 +26,7 @@
           <div class="col-md-4"></div>
           <div class="col-md-4 edit-prof">
             {% if  rider_profile.user == user %}
-            <a class="edit-desktop" href="{% url 'driver:edit' user.username %}">
+            <a class="edit-desktop" href="{% url 'drivers:edit' user.username %}">
               <button class="edit-profile">Edit Profile</button>
             </a>
             {% endif %}

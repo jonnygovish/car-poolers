@@ -78,28 +78,39 @@
               <div class="col-md-6">
                 <div class="row">
                   <h3>Car Image</h3>
-                  
+                  <img src="{{profile.car_image.url}} " alt="" class="car_image">
                 </div>
               </div>
             </div> 
           <hr>
           <div class="row">
-              <div class="col-md-6">
-                <div class="row">
-                  <h3>Car capacity:</h3>
-                    {{profile.car_capacity}}
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="row">
-                  <h3>Car Color:</h3>
-                  {{profile.car_color}}
-                </div>
+            <div class="col-md-6">
+              <div class="row">
+                <h3>Car capacity:</h3>
+                  {{profile.car_capacity}}
               </div>
             </div>
-  
-  
-                         
+            <div class="col-md-6">
+              <div class="row">
+                <h3>Car Color:</h3>
+                {{profile.car_color}}
+              </div>
+            </div>
+          </div>
+          <div class="row">
+              <div class="col-md-6">
+                <div class="row">
+                  <h3>Current_location:</h3>
+                    {{profile.current_location}}
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="row">
+                  <h3>Destination:</h3>
+                  {{profile.destination}}
+                </div>
+              </div>
+            </div>           
       </div>
       <div class="col-md-2"></div>
     </div> 

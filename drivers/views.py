@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
-from .forms import UserForm, DriverProfileForm
-from .models import Driver_profile
+from .forms import UserForm, DriverProfileForm,TripPlanForm
+from .models import Driver_profile,TripPlan
 from rider.models import Rider_profile
 from django.contrib.auth.models import User
 from django.contrib import messages
@@ -13,7 +13,16 @@ def driver(request):
   user = User.objects.get(username = request.user.username)
   profile = Driver_profile.objects.get(user =user)
   riders = Rider_profile.objects.all()
-  return render(request, 'driver/driver.html',{"profile": profile, "riders": riders})
+  if request.method == 'POST':
+    trip_form = TripPlanForm(request.POST)
+    if trip_form.is_valid():
+      trip_plan= TripPlan(driver_profile = request.user.driver_profile, current_location = request.POST['current_location'],destination = request.POST['destination'])
+      trip_plan.save()
+      print('success')
+      return redirect(reverse('drivers:driver'))
+  else:
+    trip_form = TripPlanForm()
+  return render(request, 'driver/driver.html',{"profile": profile, "riders": riders, "trip_form":trip_form})
 
 @transaction.atomic
 def update_profile(request,username):
