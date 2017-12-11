@@ -23,4 +23,6 @@ class Rider_profile(models.Model):
   def save_user_profile(sender,instance, **kwargs):
     instance.rider_profile.save()
 
+  
+
 

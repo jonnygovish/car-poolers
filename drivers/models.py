@@ -33,6 +33,10 @@ class Driver_profile(models.Model):
     @receiver(post_save, sender = User)
     def save_user_profile(sender,instance, **kwargs):
         instance.driver_profile.save()
+    @property
+    def profile_pic_url(self):
+        if self.profile_pic and hasattr(self.profile_pic, 'url'):
+            return self.profile_pic.url
 
 
 
