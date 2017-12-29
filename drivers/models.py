@@ -3,7 +3,7 @@ from django.db.models.signals import post_save
 from django.contrib.auth.models import User
 from django.dispatch import receiver
 from django.core.validators import RegexValidator
-# from rider.models import Rider_profile
+from rider.models import Rider_profile
 
 
 # Create your models here.
@@ -44,3 +44,11 @@ class TripPlan(models.Model):
     driver_profile = models.ForeignKey(Driver_profile,on_delete=models.CASCADE )
     current_location = models.CharField(max_length = 30)
     destination = models.CharField(max_length = 30)
+    
+
+class Booking(models.Model):
+    rider_profile = models.ForeignKey(Rider_profile,on_delete=models.CASCADE)
+    trip_plan = models.ForeignKey(TripPlan,on_delete=models.CASCADE)
+
+
+
