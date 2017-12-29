@@ -1,31 +1,20 @@
-.city{
-  background-image: url('/static/images/nairobi.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  height:100vh;
-  color: white; 
-  margin-top: -50px;
+*::before, ::after{
+  box-sizing: border-box;
 }
-
-
-
-
 html {
   height: 100%; }
 
 body {
+  background: #262F36;
   min-height: 100%;
   padding-top: 50px;
-  /* background-image: url('/static/images/nairobi.jpg'); */
-  /* height: 70vh; */
-  background-color: #fafafa; }
-  body.white {
-    background-color: #fff; }
-    body.white .content-wrapper {
-      background-color: #fff; }
+  font-weight: 300;
+  letter-spacing: -.02em;
+  font-family: "Open Sans", "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.4;
+}
 
-a:hover {
-  text-decoration: none; }
 
 .content-wrapper {
   margin-top: 57px;
@@ -36,48 +25,136 @@ a:hover {
       margin-top: 50px; } }
 
 
-
-
-
-
-.desktop-block {
-  display: block; }
-  @media screen and (max-width: 724px) {
-    .desktop-block {
-      display: none; } }
-
-
-
-.navbar {
-  background-color:transparent;
-  border: none;
-  z-index: 100;
-  color: white;
+.city .app-header{
+  background: url('/static/images/nairobis.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height:70vh;
+  color: white; 
+  margin-top: -50px;
+  padding-bottom: 30px !important;
 }
-  .navbar .fa {
-    /* font-size: px; */
-    color: #fff; }
-    .navbar .fa.active {
-      color: #333; }
-  
-  .navbar .navbar-brand:not(:first-of-type) {
-    float: right; }
-  @media screen and (max-width: 768px) {
-    .navbar#main-nav {
-      top: initial;
-      bottom: 0;
-      margin: 0;
-      border-top: 1px solid #ccc; }
-    .navbar .desktop {
-      display: none; }
-    .navbar .mobile {
-      display: block; } }
 
-.back-button .fa {
-  color: #333;
-  margin-right: 15px; }
-.back-button:hover {
-  cursor: pointer; }
+@media screen and (min-width: 768px){
+  .block {
+      padding: 60px 0;
+  }
+}
+
+.block {
+  width: 100%;
+  padding: 60px 30px;
+  color: inherit;
+  background-color: #fff;
+}
+
+.block-fill-height {
+  display: table;
+  width: 100%;
+  /* height: 110vh; */
+}
+
+.block-xs-middle, .block-xs-top {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+h1.block-title {
+  font-size: 42px;
+  color: #fff;
+}
+
+.m-b-md{
+  font-weight: 700;
+}
+.m-b, .m-y {
+  margin-bottom: 20px !important;
+}
+
+.p-y-lg {
+  background: url('/static/images/desk.jpg') no-repeat center fixed;
+  height:50vh;
+  padding-bottom: 60px !important;
+  color: #fff;
+}
+
+.app-footer {
+  background-color: #262F36;
+}
+.app-footer ul{
+  color: #fff;
+}
+.m-t-md, .m-y-md {
+  margin-top: 30px !important;
+  color: #fff;
+}
+
+
+
+
+
+
+
+
+
+
+.app-navbar {
+    font-weight: 500;
+    letter-spacing: .05em;
+    position: absolute;
+    background-image: linear-gradient(to bottom, rgba(21,21,21,0.8), rgba(21,21,21,0));
+    border-width: 0 0 0 !important;
+}
+
+.p-t-md, .p-y-md {
+  padding-top: 30px !important;
+}
+
+
+
+.navbar-padded .navbar-header {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+@media (min-width: 768px){
+  .container>.navbar-header {
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+
+@media (min-width: 768px){
+  .navbar-header {
+      float: left;
+  }
+}
+
+.navbar-brand {
+  float: left;
+  padding: 14.5px 10px;
+  font-size: 19px;
+  line-height: 21px;
+  height: 50px;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+.navbar-right  ul li a:hover{
+  background-color: transparent;
+  text-decoration: none;
+  color: #fff;
+}
+a:hover {
+  background: transparent;
+  color: white;
+  text-decoration: none;
+}
+
 
 
 
